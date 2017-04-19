@@ -1,8 +1,6 @@
-# Node.js Hello World Sample
+# Line Manager Meetup
 
-This application demonstrates a simple, reusable Node.js web application based on the Express framework.
-
-[![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy?repository=https://github.com/IBM-Bluemix/nodejs-helloworld)
+This application is for people interested in finding out more about the different opportunities in IBM.
 
 ## Run the app locally
 
@@ -13,3 +11,5 @@ This application demonstrates a simple, reusable Node.js web application based o
 + Access the running app in a browser at <http://localhost:6001>
 
 [Install Node.js]: https://nodejs.org/en/download/
+
+The UI framework is based on [vuejs](https://vuejs.org/). See <https://vuejs.org/> for more information.
