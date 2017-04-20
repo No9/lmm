@@ -4,18 +4,21 @@
   "private": true,
   "scripts": {
     "start": "node app.js",
-	"dev" : "browserify -t vueify -e src/main.js -o public/js/build.js"
+    "dev": "browserify -t vueify -e src/main.js -o public/js/build.js",
+    "watchify": "watchify -t vueify -vd -p browserify-hmr -e src/main.js -o public/js/build.js"
   },
   "dependencies": {
     "cfenv": "1.0.x",
     "express": "4.13.x",
-    "vue": "^2.2.6"
+    "vue": "^2.2.6",
+    "vue-material": "^0.7.1"
   },
   "repository": {},
   "engines": {
     "node": "4.x"
   },
   "devDependencies": {
+    "browserify-hmr": "^0.3.5",
     "vueify": "^9.4.1"
   }
 }

@@ -12,7 +12,7 @@
 module.exports = {
   data () {
     return {
-      msg: 'Hello world!'
+      msg: 'Hello worlds!'
     }
   }
 }
