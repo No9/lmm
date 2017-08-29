@@ -9,14 +9,65 @@
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
     <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="//unpkg.com/vue-material@latest/dist/vue-material.css">
-    
+    <style>
+
+    body { background:#fff; margin:0 }
+    header, .full-width {
+      width: 100%;
+      background: #0054A5;
+      font-family: "HelvNeueBoldIBM";
+      color: #fff;
+      font-size: 36px;
+    }
+    .outside{
+        position:relative;
+    }
+    .inside{
+        position:absolute;
+        top:50%;
+        bottom:50%;
+        transform:translate(-50%, -50%);
+    }
+    svg {
+      margin-left:auto; 
+      margin-right:auto; 
+      display:block;
+      height: 300px;
+      
+    }
+
+    @font-face {
+      font-family: "HelvNeueBoldIBM";
+      font-style: normal;
+      font-weight: 400;
+      src: url("../fonts/HelvNeueIBM-bold.eot?#iefix") format("embedded-opentype"), url("../fonts/HelvNeueIBM-bold.woff") format("woff"), url("../fonts/HelvNeueIBM-bold.ttf") format("truetype"), url("../fonts/HelvNeueIBM-bold.svg#HelvBoldIBM") format("svg");
+}
+
+    </style>
   </head>
 
   <body>
-    <md-toolbar md-theme="light-blue">
-      <p>Line Manager Meetups</p>
-    </md-toolbar>
-    <div id="app"></div>
+    <header><img src="images/search.png" />This is the title</header>
+    <div id="app">
+      <div class="outside">
+        <object type="image/svg+xml"  align="center" data="images/b4_floorplan.svg" id="map">
+          Your browser does not support SVG
+        </object>
+      </div>
+    </div>
+  <script>
+    document.body.onload = function(){
+        var map = document.getElementById('map').contentDocument;
+        map.getElementById("XMLID_141_").onclick = function(e) {
+        console.log(e);
+        document.location = '/video.html';
+      }
+    }
+</script>
+  
   </body>
+  <!--
       <script src="js/build.js"></script>
+  -->
 </html>
+

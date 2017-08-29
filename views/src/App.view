@@ -1,0 +1,13 @@
+Vertical
+height 100vh
+width 100vw
+Text
+text javascript
+Home
+at / exact
+
+#Video
+#at /:person exact
+
+#Chapter
+#at /(agree|disagree)/:id exact

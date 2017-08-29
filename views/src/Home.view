@@ -1,0 +1,6 @@
+List
+from props.brands
+Vertical
+teleportTo bluemix
+Text 
+text item.name

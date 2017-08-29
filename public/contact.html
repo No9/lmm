@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Line Manager Meetup</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    
+    
+    <div id="app">
+        <img :src="imageUrl(contactinfo.userId)"/>
+        <div>Name: {{ contactinfo.content.identity_info.name.first }} {{ contactinfo.content.identity_info.name.last }}</div>
+    </div>
+    <script>
+            var xmlHttp = new XMLHttpRequest();
+                xmlHttp.onreadystatechange = function() { 
+                    if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+                        renderResp(xmlHttp.responseText);
+                }
+                xmlHttp.open("GET", "https://w3-services1.w3-969.ibm.com/myw3/unified-profile/v1/docs/instances/master?userId=I81195754", true); // true for asynchronous 
+                xmlHttp.send(null);
+
+            function renderResp(contInfo) {
+                    new Vue({
+                        el: '#app',
+                        data: {
+                            contactinfo : JSON.parse(contInfo)
+                        },
+                        methods: {
+                            imageUrl: function (id) {
+                                return 'http://w3-services1.w3-969.ibm.com/myw3/unified-profile-photo/v1/image/' + id;
+                            }
+                        }
+                    })
+            }
+    </script>
+  </body>
+</html>
