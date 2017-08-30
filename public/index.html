@@ -6,9 +6,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
-    <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="//unpkg.com/vue-material@latest/dist/vue-material.css">
+    <link rel="stylesheet" href="stylesheets/vue-material.css">
+    <link href="//cdn.rawgit.com/noelboss/featherlight/1.7.8/release/featherlight.min.css" type="text/css" rel="stylesheet" />
     <style>
 
     body { background:#fff; margin:0 }
@@ -18,6 +17,10 @@
       font-family: "HelvNeueBoldIBM";
       color: #fff;
       font-size: 36px;
+    }
+    video {
+      width: 100%;
+      height: 600px;
     }
     .outside{
         position:relative;
@@ -35,19 +38,24 @@
       height: 300px;
       
     }
+    .videotitle {
+      font-family: "HelvNeueBoldIBM";
+      color:#0054A5;
+      font-size: 24px;
+    }
 
     @font-face {
       font-family: "HelvNeueBoldIBM";
       font-style: normal;
       font-weight: 400;
-      src: url("../fonts/HelvNeueIBM-bold.eot?#iefix") format("embedded-opentype"), url("../fonts/HelvNeueIBM-bold.woff") format("woff"), url("../fonts/HelvNeueIBM-bold.ttf") format("truetype"), url("../fonts/HelvNeueIBM-bold.svg#HelvBoldIBM") format("svg");
+      src: url("fonts/HelvNeueIBM-bold.eot?#iefix") format("embedded-opentype"), url("fonts/HelvNeueIBM-bold.woff") format("woff"), url("../fonts/HelvNeueIBM-bold.ttf") format("truetype"), url("../fonts/HelvNeueIBM-bold.svg#HelvBoldIBM") format("svg");
 }
 
     </style>
   </head>
 
   <body>
-    <header><img src="images/search.png" />This is the title</header>
+    <header><img src="images/search.png" />Meet The Leaders</header>
     <div id="app">
       <div class="outside">
         <object type="image/svg+xml"  align="center" data="images/b4_floorplan.svg" id="map">
@@ -55,13 +63,35 @@
         </object>
       </div>
     </div>
-  <script>
+ <script src="//code.jquery.com/jquery-latest.js"></script>
+ <script src="//cdn.rawgit.com/noelboss/featherlight/1.7.8/release/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+ <script>
+    var videocontrol = `
+    <div style="margin:5px">
+    <a class="videotitle" href="https://w3.ibm.com/bluepages/profile.html?uid=I81195754" target="_blank">
+    Contact Darren Now >>
+    </a>
+    </div>
+    <video autobuffer="autobuffer" autoplay="autoplay" loop="loop" controls="controls">
+    <source src='videos/VID-20170519-WA0024.mp4' type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+  </video>`
+    function loadvideo (videolocation) {
+      return function () {
+      console.log(videolocation);
+      $.featherlight(videocontrol, "");
+      //document.location = videolocation;
+      }
+    }
+    function setpointer() {
+
+    }
     document.body.onload = function(){
         var map = document.getElementById('map').contentDocument;
-        map.getElementById("XMLID_141_").onclick = function(e) {
-        console.log(e);
-        document.location = '/video.html';
-      }
+        map.getElementById("systemshardware").onclick = loadvideo('../video.html');
+        map.getElementById("systemshardware-text").onclick = loadvideo('../video.html');
+        map.getElementById("systemshardware").style.cursor='pointer';
+        map.getElementById("systemshardware-text").style.cursor='pointer';
+        //map.getElementById("systemshardware-text").onmouseover = function this.
     }
 </script>
   
